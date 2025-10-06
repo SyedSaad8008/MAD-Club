@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAD Club - Mobile App Development</title>
+    <link rel="icon" type="image/png" href="https://sroormpbssxaujacbdsl.supabase.co/storage/v1/object/sign/events%20images/Screenshot_2025-05-17_003956-removebg-preview.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zMzVlNzcyMi05YWQwLTQ1N2QtYWU5MS1lOTk5OWFhOTAzZDMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJldmVudHMgaW1hZ2VzL1NjcmVlbnNob3RfMjAyNS0wNS0xN18wMDM5NTYtcmVtb3ZlYmctcHJldmlldy5wbmciLCJpYXQiOjE3NTkyNzA1ODEsImV4cCI6MjA3NDYzMDU4MX0.i7nK9ZxBSLRPlRf85vCx9vepYcQs0QMPmtfktJ21ZZc">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="https://sroormpbssxaujacbdsl.supabase.co/storage/v1/object/sign/events%20images/Screenshot_2025-05-17_003956-removebg-preview.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zMzVlNzcyMi05YWQwLTQ1N2QtYWU5MS1lOTk5OWFhOTAzZDMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJldmVudHMgaW1hZ2VzL1NjcmVlbnNob3RfMjAyNS0wNS0xN18wMDM5NTYtcmVtb3ZlYmctcHJldmlldy5wbmciLCJpYXQiOjE3NTkyNzA1ODEsImV4cCI6MjA3NDYzMDU4MX0.i7nK9ZxBSLRPlRf85vCx9vepYcQs0QMPmtfktJ21ZZc" alt="MAD Club">
+            </div>
+            <div class="loading-text">MAD CLUB</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <div class="loading-subtitle">Initializing Future...</div>
+        </div>
+    </div>
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="https://sroormpbssxaujacbdsl.supabase.co/storage/v1/object/sign/events%20images/Screenshot_2025-05-17_003956-removebg-preview.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zMzVlNzcyMi05YWQwLTQ1N2QtYWU5MS1lOTk5OWFhOTAzZDMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJldmVudHMgaW1hZ2VzL1NjcmVlbnNob3RfMjAyNS0wNS0xN18wMDM5NTYtcmVtb3ZlYmctcHJldmlldy5wbmciLCJpYXQiOjE3NTkyNzA1ODEsImV4cCI6MjA3NDYzMDU4MX0.i7nK9ZxBSLRPlRf85vCx9vepYcQs0QMPmtfktJ21ZZc" alt="MAD Club Logo">
+                MAD CLUB
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="navigateTo('home')" class="active">Home</a></li>
+                <li><a href="#announcements" onclick="navigateTo('announcements')">Announcements</a></li>
+                <li><a href="#events" onclick="navigateTo('events')">Events</a></li>
+                <li><a href="#leadership" onclick="navigateTo('leadership')">Leadership</a></li>
+                <li><a href="#about" onclick="navigateTo('about')">About</a></li>
+            </ul>
+            <!-- Hidden Admin Access - Triple click the logo to reveal -->
+            <div class="admin-access" id="adminAccess" style="display: none; position: absolute; top: 15px; right: 150px;">
+                <button class="admin-btn" onclick="showAdminLogin()" title="Admin Access">🔑 Admin</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="hero-bg">
+                <div class="floating-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                    <div class="shape shape-4"></div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-badge">🚀 Next-Gen Development</div>
+                <h1>
+                    <img src="https://sroormpbssxaujacbdsl.supabase.co/storage/v1/object/sign/events%20images/Screenshot_2025-05-17_003956-removebg-preview.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zMzVlNzcyMi05YWQwLTQ1N2QtYWU5MS1lOTk5OWFhOTAzZDMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJldmVudHMgaW1hZ2VzL1NjcmVlbnNob3RfMjAyNS0wNS0xN18wMDM5NTYtcmVtb3ZlYmctcHJldmlldy5wbmciLCJpYXQiOjE3NTkyNzA1ODEsImV4cCI6MjA3NDYzMDU4MX0.i7nK9ZxBSLRPlRf85vCx9vepYcQs0QMPmtfktJ21ZZc" alt="MAD Club Logo" class="hero-logo">
+                    <span class="hero-text">MAD CLUB</span>
+                </h1>
+                <div class="hero-subtitle">
+                    <span class="typing-text">Mobile App Development Club - </span>
+                    <span class="dynamic-text" id="dynamicText"></span>
+                    <span class="cursor">|</span>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#events" onclick="navigateTo('events')" class="cta-button primary-cta">
+                        <span>Explore Events</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#about" onclick="navigateTo('about')" class="cta-button secondary-cta">
+                        <span>Learn More</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="25">0</div>
+                        <div class="stat-text">Active Members</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="50">0</div>
+                        <div class="stat-text">Apps Created</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="6">0</div>
+                        <div class="stat-text">Events Hosted</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile Development</h3>
+                <p>Learn iOS and Android app development from industry experts and build real-world applications.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Innovation Hub</h3>
+                <p>Transform your ideas into reality with our resources, mentorship, and collaborative environment.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h3>Community</h3>
+                <p>Join a vibrant community of developers, designers, and entrepreneurs passionate about mobile tech.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2 class="contact-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <a href="mailto:madclub@lords.ac.in">madclub@lords.ac.in</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <h3>Location</h3>
+                    <p style="color: #cbd5e1;">Lords Institute of Engineering & Technology</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🌐</div>
+                    <h3>Social Media</h3>
+                    <a href="https://www.instagram.com/madclub_liet/?igsh=MXM1ejVub2xzOHZnNA%3D%3D&utm_source=qr#">@MADClub</a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Send Me a Message</h3>
+                <form action="https://formsubmit.co/syedsaadsyedsaad5@gmail.com" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="hidden" name="_autoresponse" value="Thank you for reaching out! I will get back to you soon.">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea name="message" placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Announcements Page -->
+    <div id="announcements" class="page">
+        <div class="section-container">
+            <h1 class="section-title">Club Announcements</h1>
+            <div id="announcementsContainer" class="announcements-container">
+                <div class="loading-announcements">Loading announcements...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Events Page -->
+    <div id="events" class="page">
+        <div class="section-container">
+            <h1 class="section-title">Our Events</h1>
+            <div class="events-tabs">
+                <button class="tab-button active" onclick="showEvents('upcoming', this)">Upcoming</button>
+                <button class="tab-button" onclick="showEvents('completed', this)">Completed</button>
+            </div>
+            <div id="eventsContainer" class="events-grid"></div>
+        </div>
+    </div>
+
+    <!-- Leadership Page -->
+    <div id="leadership" class="page">
+        <div class="section-container">
+            <h1 class="section-title">Our Leadership Team</h1>
+            <div id="leadershipContainer" class="leadership-grid"></div>
+        </div>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <div class="section-container">
+            <h1 class="section-title">About MAD Club</h1>
+            <div class="about-content">
+                <p>The Mobile App Development (MAD) Club is a student-driven organization dedicated to fostering innovation and creativity in mobile application development. Founded with a vision to empower students with cutting-edge mobile development skills, we provide a platform for learning, collaboration, and growth.</p>
+                
+                <p>Our club brings together passionate individuals from diverse backgrounds who share a common interest in creating impactful mobile applications. Through workshops, hackathons, and mentorship programs, we help members transform their ideas into reality.</p>
+
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Active Members</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4+</div>
+                        <div class="stat-label">Events Hosted</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Apps Created</div>
+                    </div>
+                </div>
+
+                <p>Whether you're a beginner taking your first steps in mobile development or an experienced developer looking to enhance your skills, MAD Club provides the resources, community, and opportunities you need to succeed in the dynamic world of mobile technology.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thank You Page -->
+    <div id="thank-you" class="page">
+        <div class="thank-you-container">
+            
+            
+            <h1>Thank You!</h1>
+            <p>We appreciate you taking the time. Your submission has been received successfully.</p>
+            
+            <div class="thank-you-message">
+                We'll get back to you as soon as possible. If you have any urgent questions, feel free to reach out to us directly.
+            </div>
+
+            <a href="#home" onclick="navigateTo('home')" class="back-to-home">Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="adminModal" class="admin-modal" style="display: none;">
+        <div class="admin-modal-content">
+            <div class="admin-modal-header">
+                <h2>🔐 Admin Login</h2>
+                <span class="admin-modal-close" onclick="closeAdminLogin()">&times;</span>
+            </div>
+            <form id="adminLoginForm" onsubmit="adminLogin(event)">
+                <div class="admin-form-group">
+                    <label for="adminEmail">Email:</label>
+                    <input type="email" id="adminEmail" required placeholder="lords@madclub.com">
+                </div>
+                <div class="admin-form-group">
+                    <label for="adminPassword">Password:</label>
+                    <input type="password" id="adminPassword" required placeholder="Enter password">
+                </div>
+                <button type="submit" class="admin-login-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="page admin-dashboard" style="display: none;">
+        <div class="admin-container">
+            <div class="admin-header">
+                <h1>📢 Admin Dashboard - Announcements</h1>
+                <div class="admin-actions">
+                    <button onclick="showAddAnnouncementForm()" class="admin-btn primary">+ Add Announcement</button>
+                    <button onclick="logoutAdmin()" class="admin-btn secondary">Logout</button>
+                </div>
+            </div>
+
+            <!-- Add/Edit Announcement Form -->
+            <div id="announcementForm" class="announcement-form" style="display: none;">
+                <div class="form-header">
+                    <h3 id="formTitle">Add New Announcement</h3>
+                    <button onclick="hideAnnouncementForm()" class="close-form-btn">&times;</button>
+                </div>
+                <form id="adminAnnouncementForm" onsubmit="saveAnnouncement(event)">
+                    <input type="hidden" id="announcementId">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="announcementTitle">Title:</label>
+                            <input type="text" id="announcementTitle" placeholder="Announcement title (optional)">
+                        </div>
+                        <div class="form-group">
+                            <label for="announcementSubject">Subject:</label>
+                            <input type="text" id="announcementSubject" placeholder="Subject (optional)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="announcementDetails">Details:</label>
+                        <textarea id="announcementDetails" rows="4" placeholder="Announcement details (optional)"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="announcementImages">Image URLs (comma separated):</label>
+                            <input type="text" id="announcementImages" placeholder="https://example.com/image1.jpg, https://example.com/image2.jpg (optional)">
+                        </div>
+                        <div class="form-group">
+                            <label for="announcementVideos">Video URLs (comma separated):</label>
+                            <input type="text" id="announcementVideos" placeholder="https://youtube.com/watch?v=... (optional)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="announcementLinks">Links (comma separated):</label>
+                        <input type="text" id="announcementLinks" placeholder="https://example.com, https://another-link.com (optional)">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="admin-btn primary">Save Announcement</button>
+                        <button type="button" onclick="hideAnnouncementForm()" class="admin-btn secondary">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Announcements List -->
+            <div class="admin-announcements">
+                <h3>Existing Announcements</h3>
+                <div id="adminAnnouncementsList" class="admin-announcements-list">
+                    <div class="loading-admin-announcements">Loading announcements...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <img src="https://sroormpbssxaujacbdsl.supabase.co/storage/v1/object/sign/events%20images/Screenshot_2025-05-17_003956-removebg-preview.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zMzVlNzcyMi05YWQwLTQ1N2QtYWU5MS1lOTk5OWFhOTAzZDMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJldmVudHMgaW1hZ2VzL1NjcmVlbnNob3RfMjAyNS0wNS0xN18wMDM5NTYtcmVtb3ZlYmctcHJldmlldy5wbmciLCJpYXQiOjE3NTkyNzA1ODEsImV4cCI6MjA3NDYzMDU4MX0.i7nK9ZxBSLRPlRf85vCx9vepYcQs0QMPmtfktJ21ZZc" alt="MAD Club Logo" class="footer-logo">
+        <p>&copy; 2025 MAD Club. All rights reserved. Built with passion for mobile development.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+</html>
